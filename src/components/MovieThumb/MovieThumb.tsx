@@ -24,7 +24,7 @@ const MovieThumb: React.FC<Props> = ({ movieData }) => {
   const getImage = findMovieThumbImage(movieData.id);
 
   const movieImage =
-    getImage === undefined ? movieThumbImages[33] : getImage.default;
+    getImage === undefined ? movieThumbImages[33].default : getImage.default;
 
   return (
     <article className="thumb-article">
