@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     getAllMovies().then((data) => setMovies(data.data));
-  });
+  }, []);
 
   return <h1>Home page</h1>;
 };
