@@ -29,8 +29,10 @@ const authorization = {
   },
 };
 
-export const getAllMovies = async (): Promise<Movie> => {
-  const response = await fetch(url, authorization);
+export const fetchMovies = async (id?: string): Promise<Movie | SingleMovie> => {
+  const determineFetch = id ? `${url}/${id}` : url
+
+  const response = await fetch(determineFetch, authorization);
 
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -38,13 +40,3 @@ export const getAllMovies = async (): Promise<Movie> => {
 
   return response.json();
 };
-
-export const getSingleMovie = async (id: string): Promise<SingleMovie> => {
-  const response = await fetch(`${url}/${id}`, authorization);
-
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-
-  return response.json();
-}
