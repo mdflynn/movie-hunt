@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 
-import { getAllMovies } from "../../apiCalls";
+import { getAllMovies, Movie } from "../../apiCalls";
 
 const HomePage: React.FC = () => {
+  const [movies, setMovies] = useState<Movie | []>([]);
+
   useEffect(() => {
-    getAllMovies().then((data) => console.log(data.data));
+    getAllMovies().then((data) => setMovies(data.data));
   });
 
   return <h1>Home page</h1>;
