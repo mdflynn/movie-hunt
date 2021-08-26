@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 
-import { getAllMovies, Movie } from "../../apiCalls";
+import { fetchMovies, Movie } from "../../apiCalls";
 import MovieThumb from "../MovieThumb/MovieThumb";
 
 const HomePage: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    getAllMovies().then((data) => setMovies(data.data));
+    fetchMovies().then((data) => setMovies(data.data));
   }, []);
 
   const generateMovieThumbs = () => {
