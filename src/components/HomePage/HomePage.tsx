@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
     return movies.map((movie, i) => <MovieThumb key={i} movieData={movie} />);
   };
 
-  return <section>{movies && generateMovieThumbs()}</section>;
+  return <section className="movie-section">{movies && generateMovieThumbs()}</section>;
 };
 
 export default HomePage;
