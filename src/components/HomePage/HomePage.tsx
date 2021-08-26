@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, useEffect, useState, SetStateAction } from "react";
 import "./HomePage.css";
 
 import { fetchMovies, Movie } from "../../apiCalls";
 import MovieThumb from "../MovieThumb/MovieThumb";
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<{
+  poster: Dispatch<SetStateAction<any>>;
+}> = ({ poster }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
@@ -12,10 +14,16 @@ const HomePage: React.FC = () => {
   }, []);
 
   const generateMovieThumbs = () => {
-    return movies.map((movie, i) => <MovieThumb key={i} movieData={movie} />);
+    return movies.map((movie, i) => (
+      <MovieThumb key={i} movieData={movie} poster={poster} />
+    ));
   };
 
-  return <section className="movie-section">{movies && generateMovieThumbs()}</section>;
+  return (
+    <section className="movie-section">
+      {movies && generateMovieThumbs()}
+    </section>
+  );
 };
 
 export default HomePage;
