@@ -12,7 +12,18 @@ function importAll(r: any) {
 }
 
 const MoviePage: React.FC<{ id: string }> = ({ id }) => {
-  return <h1>Movie Page</h1>
+  const [selectedMovie, setSelectedMovie] = useState({});
+
+  useEffect(() => {
+    fetchMovies(id).then((data) => setSelectedMovie(data.data));
+  }, [id]);
+
+  return (
+    <h1>
+      Movie Page
+      {Object.keys(selectedMovie).length && console.log(selectedMovie)}
+    </h1>
+  );
 };
 
 export default MoviePage;
