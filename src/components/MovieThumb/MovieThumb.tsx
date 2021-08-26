@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieThumb.css";
+import { Link } from "react-router-dom";
 
 import { Movie } from "../../apiCalls";
 
@@ -27,10 +28,12 @@ const MovieThumb: React.FC<Props> = ({ movieData }) => {
     getImage === undefined ? movieThumbImages[33].default : getImage.default;
 
   return (
-    <article className="thumb-article">
-      <img className="thumb-img" src={movieImage} />
-      <h1 className="thumb-title">{movieData.title}</h1>
-    </article>
+    <Link to={`movie/${movieData.id}`}>
+      <article className="thumb-article">
+        <img className="thumb-img" src={movieImage} />
+        <h1 className="thumb-title">{movieData.title}</h1>
+      </article>
+    </Link>
   );
 };
 
