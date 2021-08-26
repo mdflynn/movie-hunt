@@ -16,5 +16,9 @@ export const getAllMovies = async (): Promise<Movie> => {
     }
   );
 
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
   return response.json();
 };
