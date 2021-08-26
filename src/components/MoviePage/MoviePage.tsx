@@ -18,11 +18,25 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
     fetchMovies(id).then((data) => setSelectedMovie(data.data));
   }, [id]);
 
+  // duplicate refactor
+  const findMovieThumbImage = (id: string) => {
+    return movieBackgrounds.find((movie: any) => movie.default.includes(id));
+  };
+  // duplicate refactor
+  const getImage = findMovieThumbImage(id);
+
+  // duplicate refactor
+  const movieImage =
+    getImage === undefined ? movieBackgrounds[33].default : getImage.default;
+
   return (
-    <h1>
-      Movie Page
-      {Object.keys(selectedMovie).length && console.log(selectedMovie)}
-    </h1>
+    <section className="movie-detail-section">
+      <img
+        className="background-img"
+        src={movieImage}
+        alt={selectedMovie.title}
+      />
+    </section>
   );
 };
 
