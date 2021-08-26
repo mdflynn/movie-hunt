@@ -5,16 +5,32 @@ export interface Movie {
   genres: string[];
 }
 
-export const getAllMovies = async (): Promise<Movie> => {
-  const response = await fetch(
-    "https://code-challenge.spectrumtoolbox.com/api/movies",
+export interface SingleMovie {
+  data: any;
+  id: string;
+  title: string;
+  description: string;
+  duration: number;
+  releaseDate: string;
+  releaseYear: number;
+  moods: [];
+  topCast: {
+    name: string;
+    characterName: string;
+  }[];
+  genres: string[];
+}
 
-    {
-      headers: {
-        authorization: "Api-Key q3MNxtfep8Gt",
-      },
-    }
-  );
+const url = "https://code-challenge.spectrumtoolbox.com/api/movies";
+
+const authorization = {
+  headers: {
+    authorization: "Api-Key q3MNxtfep8Gt",
+  },
+};
+
+export const getAllMovies = async (): Promise<Movie> => {
+  const response = await fetch(url, authorization);
 
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -22,3 +38,4 @@ export const getAllMovies = async (): Promise<Movie> => {
 
   return response.json();
 };
+
