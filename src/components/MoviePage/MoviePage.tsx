@@ -36,6 +36,7 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         src={movieImage}
         alt={selectedMovie.title}
       />
+      <article className="movie-info">{selectedMovie.title}</article>
     </section>
   );
 };

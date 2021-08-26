@@ -1,3 +1,7 @@
+.movie-detail-section {
+  position: relative;
+}
+
 .background-img {
   display: block;
   margin-left: auto;
@@ -6,6 +10,15 @@
   -webkit-animation: background-img 5s ease-out both;
   animation: background-img 5s ease-out both;
 }
+
+.movie-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* background image animation */
 
 @-webkit-keyframes background-img {
   0% {
