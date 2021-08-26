@@ -23,16 +23,18 @@ export interface SingleMovie {
 
 const url = "https://code-challenge.spectrumtoolbox.com/api/movies";
 
-const authorization = {
-  headers: {
-    authorization: "Api-Key q3MNxtfep8Gt",
-  },
-};
+const authorization = "Api-Key q3MNxtfep8Gt";
 
-export const fetchMovies = async (id?: string): Promise<Movie | SingleMovie> => {
-  const determineFetch = id ? `${url}/${id}` : url
+export const fetchMovies = async (
+  id?: string
+): Promise<Movie | SingleMovie> => {
+  const determineFetch = id ? `${url}/${id}` : url;
 
-  const response = await fetch(determineFetch, authorization);
+  const response = await fetch(determineFetch, {
+    headers: {
+      authorization,
+    },
+  });
 
   if (!response.ok) {
     throw new Error(response.statusText);
