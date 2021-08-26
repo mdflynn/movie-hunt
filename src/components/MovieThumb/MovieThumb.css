@@ -1,0 +1,17 @@
+.thumb-article {
+    margin: 10px 0;
+    border: 1px solid blue;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.thumb-img {
+    height: 300px;
+    width: 250px;
+}
+h1 {
+    max-width: 250px;
+}
