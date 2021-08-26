@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MoviePage.css";
 
+import { fetchMovies, SingleMovie } from "../../apiCalls";
+
+const movieBackgrounds = importAll(
+  require.context("../../assets/movieHeroImages", false, /\.(png|jpe?g|svg)$/)
+);
+
+function importAll(r: any) {
+  return r.keys().map(r);
+}
+
 const MoviePage: React.FC<{ id: string }> = ({ id }) => {
-    console.log(id)
-  return <h1>Movie Page</h1>;
+  return <h1>Movie Page</h1>
 };
 
 export default MoviePage;
