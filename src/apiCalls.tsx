@@ -1,9 +1,8 @@
-interface Movie {
-  data: {
-    id: string;
-    title: string;
-    genres: string[];
-  };
+export interface Movie {
+  data: any;
+  id: string;
+  title: string;
+  genres: string[];
 }
 
 export const getAllMovies = async (): Promise<Movie> => {
