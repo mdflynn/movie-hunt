@@ -29,6 +29,19 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
   const movieImage =
     getImage === undefined ? movieBackgrounds[33].default : getImage.default;
 
+
+  const movieGenres = selectedMovie.genres.reduce(
+    (allGenres: string, genre: string, i: number) => {
+      if (i === selectedMovie.genres.length - 1) {
+        allGenres += genre;
+      } else {
+        allGenres += genre + ", ";
+      }
+      return allGenres;
+    },
+    ""
+  );
+
   return (
     <section className="movie-detail-section">
       <img
@@ -36,7 +49,11 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         src={movieImage}
         alt={selectedMovie.title}
       />
-      <article className="movie-info">{selectedMovie.title}</article>
+      <article className="movie-info">
+        <h1>{selectedMovie.title}</h1>
+        <p>{selectedMovie.description}</p>
+        <p>{movieGenres}</p>
+      </article>
     </section>
   );
 };
