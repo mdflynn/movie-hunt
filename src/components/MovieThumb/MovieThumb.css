@@ -12,6 +12,7 @@
     height: 300px;
     width: 250px;
 }
-h1 {
+
+.thumb-title {
     max-width: 250px;
 }
