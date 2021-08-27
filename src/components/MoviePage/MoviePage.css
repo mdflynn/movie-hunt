@@ -18,6 +18,10 @@
   transform: translate(-50%, -50%);
 }
 
+.movie-sub-details {
+  display: flex;
+}
+
 /* background image animation */
 
 @-webkit-keyframes background-img {
