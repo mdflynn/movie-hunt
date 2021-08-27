@@ -41,7 +41,17 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
       },
       ""
     );
-  }
+  };
+
+  const convertRuntime = (duration: number) => {
+    const hours = Math.floor(duration / 3600);
+    const minutes = Math.floor((duration % 3600) / 60);
+
+    const hourDisplay = hours + "h";
+    const minuteDisplay = minutes > 0 ? minutes + "m" : "";
+
+    return hourDisplay + " " + minuteDisplay;
+  };
 
   return (
     <section className="movie-detail-section">
@@ -56,7 +66,10 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         <div className="movie-sub-details">
           <p>{Object.keys(selectedMovie).length && getMovieGenres()} ●</p>
           <p>{selectedMovie.releaseYear} ● </p>
-          <p>{selectedMovie.duration}</p>
+          <p>
+            {Object.keys(selectedMovie).length &&
+              convertRuntime(selectedMovie.duration)}
+          </p>
         </div>
       </article>
     </section>
