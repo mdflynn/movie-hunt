@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchBar = () => {
-    return <h1>Search Bar</h1>
-}
+  const [searchCriteria, setSearchCriteria] = useState<string>("");
+
+  const handleSearchMovies = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchCriteria(e.target.value);
+  };
+
+  return (
+    <form>
+      <input
+        className="form-field"
+        placeholder="Search For A Movie Title"
+        type="text"
+        onChange={handleSearchMovies}
+        value={searchCriteria}
+      />
+    </form>
+  );
+};
 
 export default SearchBar;
