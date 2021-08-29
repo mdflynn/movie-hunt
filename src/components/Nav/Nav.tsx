@@ -11,8 +11,10 @@ const Nav: React.FC<{
 }> = ({ search, criteria, filter }) => {
   return (
     <nav className="nav">
-      <SearchBar search={search} criteria={criteria} />
-      <Dropdown filter={filter} />
+      <div className="search-div">
+        <SearchBar search={search} criteria={criteria} />
+        <Dropdown filter={filter} />
+      </div>
       <p className="nav-title">Movie Hunt</p>
     </nav>
   );
