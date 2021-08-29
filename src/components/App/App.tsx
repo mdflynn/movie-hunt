@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import HomePage from "../HomePage/HomePage";
-import MovieThumb from "../MovieThumb/MovieThumb";
-import { Route, Switch } from 'react-router-dom'
+import MoviePage from "../MoviePage/MoviePage";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
+const App: React.FC = () => {
+  const [selectedPoster, setSelectedPoster] = useState('');
+
   return (
     <Switch>
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" render={() => <HomePage poster={setSelectedPoster}/>} />
+      <Route
+        path="/movie/:id"
+        render={({ match }) => <MoviePage id={match.params.id} />}
+        // add selectedPoster in the render
+      />
     </Switch>
   );
 }
