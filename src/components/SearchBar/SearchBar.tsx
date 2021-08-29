@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 
-const SearchBar = () => {
-  const [searchCriteria, setSearchCriteria] = useState<string>("");
-
+const SearchBar: React.FC<{
+  search: Dispatch<SetStateAction<any>>;
+  criteria: string;
+}> = ({ search, criteria }) => {
   const handleSearchMovies = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchCriteria(e.target.value);
+    search(e.target.value);
   };
 
   return (
@@ -14,7 +15,7 @@ const SearchBar = () => {
         placeholder="Search For A Movie Title"
         type="text"
         onChange={handleSearchMovies}
-        value={searchCriteria}
+        value={criteria}
       />
     </form>
   );
