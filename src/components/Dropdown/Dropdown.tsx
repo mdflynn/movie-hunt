@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = ({
   filter,
