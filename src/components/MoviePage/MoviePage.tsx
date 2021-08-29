@@ -6,7 +6,7 @@ import { fetchMovies, SingleMovie } from "../../apiCalls";
 const movieBackgrounds = importAll(
   require.context("../../assets/movieHeroImages", false, /\.(png|jpe?g|svg)$/)
 );
-
+// duplicate
 function importAll(r: any) {
   return r.keys().map(r);
 }
@@ -29,15 +29,23 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
   const movieImage =
     getImage === undefined ? movieBackgrounds[33].default : getImage.default;
 
-  const getMovieGenres = () => {
-    return selectedMovie.genres.reduce(
-      (allGenres: string, genre: string, i: number) => {
-        if (i === selectedMovie.genres.length - 1) {
-          allGenres += genre;
+
+  const getCategoryDetails = (category: string) => {
+    const movieInfoNeeded =
+      category === "genre" ? selectedMovie.genres : selectedMovie.topCast;
+
+    return movieInfoNeeded.reduce(
+      (categoryDetails: string, categoryItem: any, i: number) => {
+        if (i === movieInfoNeeded.length - 1) {
+          category === "genre"
+            ? (categoryDetails += categoryItem)
+            : (categoryDetails += categoryItem.name);
         } else {
-          allGenres += genre + ", ";
+          category === "genre"
+            ? (categoryDetails += categoryItem + ", ")
+            : (categoryDetails += categoryItem.name + ", ");
         }
-        return allGenres;
+        return categoryDetails;
       },
       ""
     );
@@ -53,6 +61,7 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
     return hourDisplay + " " + minuteDisplay;
   };
 
+  // conditionally render entire section based on selectedMovie
   return (
     <section className="movie-detail-section">
       <img
@@ -64,13 +73,19 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         <h1>{selectedMovie.title}</h1>
         <p>{selectedMovie.description}</p>
         <div className="movie-sub-details">
-          <p>{Object.keys(selectedMovie).length && getMovieGenres()} ●</p>
+          <p>
+            {Object.keys(selectedMovie).length && getCategoryDetails("genre")} ●
+          </p>
           <p>{selectedMovie.releaseYear} ● </p>
           <p>
             {Object.keys(selectedMovie).length &&
               convertRuntime(selectedMovie.duration)}
           </p>
         </div>
+        <article className="cast-article">
+          <h1>Cast: </h1>
+          {Object.keys(selectedMovie).length && getCategoryDetails("")}
+        </article>
       </article>
     </section>
   );
