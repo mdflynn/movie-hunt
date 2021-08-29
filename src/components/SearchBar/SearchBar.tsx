@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 const SearchBar: React.FC<{
   search: Dispatch<SetStateAction<any>>;
