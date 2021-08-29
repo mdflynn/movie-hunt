@@ -9,10 +9,25 @@ const HomePage: React.FC<{
   search: string;
 }> = ({ poster, search }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [genres, setGenres] = useState<string[]>([]);
 
   useEffect(() => {
-    fetchMovies().then((data) => setMovies(data.data));
+    fetchMovies().then((data) => {
+      setMovies(data.data);
+      generateGenres();
+    });
   }, []);
+
+  const generateGenres = () => {
+    return movies.reduce((movieGenres: string[], movie: any) => {
+      movie.genres.forEach((genre: string) => {
+        if (!movieGenres.includes(genre)) {
+          movieGenres.push(genre);
+        }
+      });
+      return movieGenres;
+    }, []);
+  };
 
   const filterSearchResults = (searchCriteria: string) => {
     return movies.filter((movie) =>
