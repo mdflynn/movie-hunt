@@ -6,22 +6,34 @@ import MovieThumb from "../MovieThumb/MovieThumb";
 
 const HomePage: React.FC<{
   poster: Dispatch<SetStateAction<any>>;
-}> = ({ poster }) => {
+  search: string;
+}> = ({ poster, search }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     fetchMovies().then((data) => setMovies(data.data));
   }, []);
 
-  const generateMovieThumbs = () => {
-    return movies.map((movie, i) => (
+  const filterSearchResults = (searchCriteria: string) => {
+    return movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchCriteria.toLowerCase())
+    );
+  };
+
+  const generateMovieThumbs = (searchCriteria: string) => {
+    const filteredResults = filterSearchResults(searchCriteria);
+
+    return filteredResults.map((movie, i) => (
       <MovieThumb key={i} movieData={movie} poster={poster} />
     ));
   };
 
+  const displayMovieThumbs = generateMovieThumbs(search);
+
   return (
     <section className="movie-section">
-      {movies && generateMovieThumbs()}
+      {movies && displayMovieThumbs}
+      {displayMovieThumbs.length === 0 && <p>No movies by that name!</p>}
     </section>
   );
 };
