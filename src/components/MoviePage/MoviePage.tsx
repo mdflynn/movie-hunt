@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./MoviePage.css";
 
-import { fetchMovies, SingleMovie } from "../../apiCalls";
+import { fetchMovies } from "../../apiCalls";
+import { findMovieThumbImage, importAll } from "../../utilities";
+import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
 
 const movieBackgrounds = importAll(
   require.context("../../assets/movieHeroImages", false, /\.(png|jpe?g|svg)$/)
 );
-// duplicate
-function importAll(r: any) {
-  return r.keys().map(r);
-}
 
 const MoviePage: React.FC<{ id: string }> = ({ id }) => {
   const [selectedMovie, setSelectedMovie] = useState<any>({});
@@ -18,16 +16,9 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
     fetchMovies(id).then((data) => setSelectedMovie(data.data));
   }, [id]);
 
-  // duplicate refactor
-  const findMovieThumbImage = (id: string) => {
-    return movieBackgrounds.find((movie: any) => movie.default.includes(id));
-  };
-  // duplicate refactor
-  const getImage = findMovieThumbImage(id);
+  const getImage = findMovieThumbImage(id, movieBackgrounds);
 
-  // duplicate refactor
-  const movieImage =
-    getImage === undefined ? movieBackgrounds[33].default : getImage.default;
+  const movieImage = getImage === undefined ? defaultImage : getImage.default;
 
   const getCategoryDetails = (category: string) => {
     const movieInfoNeeded =
@@ -87,10 +78,12 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         </div>
         <article className="cast-article">
           <p>
-            <span>Starring</span>: {movieUpdated && getCategoryDetails("")} ●{" "}
+            <span className="cast-span">Starring</span>:{" "}
+            {movieUpdated && getCategoryDetails("")} ●{" "}
           </p>
           <p>
-            <span>Director</span>: {movieUpdated && getDirector()}
+            <span className="cast-span">Director</span>:{" "}
+            {movieUpdated && getDirector()}
           </p>
         </article>
       </article>

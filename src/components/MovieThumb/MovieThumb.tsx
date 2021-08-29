@@ -3,31 +3,22 @@ import "./MovieThumb.css";
 import { Link } from "react-router-dom";
 
 import { Movie } from "../../apiCalls";
+import { findMovieThumbImage, importAll } from "../../utilities";
+import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
 
 const movieThumbImages = importAll(
   require.context("../../assets/moviePosterImages", false, /\.(png|jpe?g|svg)$/)
 );
-
-function importAll(r: any) {
-  return r.keys().map(r);
-}
-
 interface Props {
   key: number;
   movieData: Movie;
   poster: Dispatch<SetStateAction<any>>;
 }
-// make dynamic for MovieThumb and Movie
-const findMovieThumbImage = (id: string) => {
-  return movieThumbImages.find((movie: any) => movie.default.includes(id));
-};
 
 const MovieThumb: React.FC<Props> = ({ movieData, poster }) => {
-  const getImage = findMovieThumbImage(movieData.id);
-  // move image import to App to pass down
+  const getImage = findMovieThumbImage(movieData.id, movieThumbImages);
 
-  const movieImage =
-    getImage === undefined ? movieThumbImages[33].default : getImage.default;
+  const movieImage = getImage === undefined ? defaultImage : getImage.default;
 
   return (
     <Link to={`movie/${movieData.id}`}>
