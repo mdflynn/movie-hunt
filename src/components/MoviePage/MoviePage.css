@@ -22,6 +22,11 @@
   display: flex;
 }
 
+.cast-article {
+  height: 50px;
+  background-color: red;
+}
+
 /* background image animation */
 
 @-webkit-keyframes background-img {
