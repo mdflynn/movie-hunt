@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 
-const Dropdown: React.FC = () => {
+const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = () => {
+  const [genreFilter, setGenreFilter] = useState<string>("");
+
+  const handleDropdownChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setGenreFilter(e.target.value);
+  };
+
   return (
-    <select className="dropdown">
-      <option selected>All</option>
+    <select
+      defaultValue={"Default"}
+      onChange={handleDropdownChange}
+      className="dropdown"
+    >
+      <option value="Default">All</option>
       <option value="Action">Action</option>
       <option value="Animated">Animated</option>
       <option value="Adventure">Adventure</option>
