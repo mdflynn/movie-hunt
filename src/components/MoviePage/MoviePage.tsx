@@ -29,7 +29,6 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
   const movieImage =
     getImage === undefined ? movieBackgrounds[33].default : getImage.default;
 
-
   const getCategoryDetails = (category: string) => {
     const movieInfoNeeded =
       category === "genre" ? selectedMovie.genres : selectedMovie.topCast;
@@ -45,10 +44,18 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
             ? (categoryDetails += categoryItem + ", ")
             : (categoryDetails += categoryItem.name + ", ");
         }
+
         return categoryDetails;
       },
       ""
     );
+  };
+
+  const getDirector = () => {
+    return selectedMovie.topCast.find(
+      (movie: { name: string; characterName: string }) =>
+        movie.characterName === null
+    ).name;
   };
 
   const convertRuntime = (duration: number) => {
@@ -61,7 +68,8 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
     return hourDisplay + " " + minuteDisplay;
   };
 
-  // conditionally render entire section based on selectedMovie
+  const movieUpdated = Object.keys(selectedMovie).length;
+
   return (
     <section className="movie-detail-section">
       <img
@@ -73,18 +81,17 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
         <h1>{selectedMovie.title}</h1>
         <p>{selectedMovie.description}</p>
         <div className="movie-sub-details">
-          <p>
-            {Object.keys(selectedMovie).length && getCategoryDetails("genre")} ●
-          </p>
+          <p>{movieUpdated && getCategoryDetails("genre")} ●</p>
           <p>{selectedMovie.releaseYear} ● </p>
-          <p>
-            {Object.keys(selectedMovie).length &&
-              convertRuntime(selectedMovie.duration)}
-          </p>
+          <p>{movieUpdated && convertRuntime(selectedMovie.duration)}</p>
         </div>
         <article className="cast-article">
-          <h1>Cast: </h1>
-          {Object.keys(selectedMovie).length && getCategoryDetails("")}
+          <p>
+            <span>Starring</span>: {movieUpdated && getCategoryDetails("")} ●{" "}
+          </p>
+          <p>
+            <span>Director</span>: {movieUpdated && getDirector()}
+          </p>
         </article>
       </article>
     </section>
