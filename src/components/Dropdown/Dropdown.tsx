@@ -1,10 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 
-const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = () => {
-  const [genreFilter, setGenreFilter] = useState<string>("");
-
+const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = ({
+  filter,
+}) => {
   const handleDropdownChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setGenreFilter(e.target.value);
+    filter(e.target.value);
   };
 
   return (
