@@ -7,16 +7,17 @@ import Nav from "../Nav/Nav";
 import { Route, Switch } from "react-router-dom";
 
 const App: React.FC = () => {
-  const [selectedPoster, setSelectedPoster] = useState("");
+  const [selectedPoster, setSelectedPoster] = useState<string>("");
+  const [searchCriteria, setSearchCriteria] = useState<string>("");
 
   return (
     <>
-      <Nav />
+      <Nav search={setSearchCriteria} criteria={searchCriteria} />
       <Switch>
         <Route
           exact
           path="/"
-          render={() => <HomePage poster={setSelectedPoster} />}
+          render={() => <HomePage poster={setSelectedPoster} search={searchCriteria} />}
         />
         <Route
           path="/movie/:id"
