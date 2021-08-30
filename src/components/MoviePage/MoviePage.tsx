@@ -79,12 +79,12 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
             </div>
             <p className="movie-description">{selectedMovie.description}</p>
             <article className="cast-article">
-              <p className="class-text">
+              <p className="cast-text">
                 <span className="cast-span">Starring</span>:{" "}
                 {movieUpdated && getCategoryDetails("")}
               </p>
               <br />
-              <p className="class-text">
+              <p className="cast-text">
                 <span className="cast-span">Director</span>:{" "}
                 {movieUpdated && getDirector()}
               </p>
