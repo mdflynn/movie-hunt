@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
 import SearchBar from "../SearchBar/SearchBar";
@@ -15,7 +16,9 @@ const Nav: React.FC<{
         <SearchBar search={search} criteria={criteria} />
         <Dropdown filter={filter} />
       </div>
-      <p className="nav-title">Movie Hunt</p>
+      <Link className="link-style" to="/">
+        <p className="nav-title">Movie Hunt</p>
+      </Link>
     </nav>
   );
 };
