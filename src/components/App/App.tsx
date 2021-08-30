@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 
 import HomePage from "../HomePage/HomePage";
 import MoviePage from "../MoviePage/MoviePage";
@@ -10,7 +9,7 @@ const App: React.FC = () => {
   const [selectedPoster, setSelectedPoster] = useState<string>("");
   const [searchCriteria, setSearchCriteria] = useState<string>("");
   const [selectedGenre, setSelectedGenre] = useState<string>("");
-  
+
   return (
     <>
       <Nav
