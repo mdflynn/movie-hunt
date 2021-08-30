@@ -1,3 +1,4 @@
+// imports image files into component
 export const importAll = (r: any) => {
   return r.keys().map(r);
 };

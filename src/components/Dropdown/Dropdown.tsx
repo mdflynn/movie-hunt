@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import "./Dropdown.css";
 
 const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = ({
   filter,

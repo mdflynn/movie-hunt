@@ -1,8 +1,33 @@
+@font-face {
+  font-family: 'Motion';
+  src: url("../../assets/MotionPersonalUseBold-2O0od.ttf") format("truetype");
+}
+
 .nav {
-    height: 6rem;
-    background-color: blue;
+  height: 6rem;
+  background-color: #34495e;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .search-div {
-    display: flex;
+  display: flex;
+  margin-left: 20px;
+}
+
+.nav-title {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  font-family: Motion;
+  font-size: 65px;
+}
+
+.link-style:visited,
+.link-style:after,
+.link-style:before,
+.link-style:link {
+  text-decoration: none !important;
+  color: black;
 }

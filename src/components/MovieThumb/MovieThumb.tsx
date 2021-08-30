@@ -21,7 +21,7 @@ const MovieThumb: React.FC<Props> = ({ movieData, poster }) => {
   const movieImage = getImage === undefined ? defaultImage : getImage.default;
 
   return (
-    <Link to={`movie/${movieData.id}`}>
+    <Link className="link-style" to={`movie/${movieData.id}`}>
       <article className="thumb-article" onClick={() => poster(movieImage)}>
         <img className="thumb-img" src={movieImage} alt={movieData.title} />
         <h1 className="thumb-title">{movieData.title}</h1>

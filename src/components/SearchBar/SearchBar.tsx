@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import "./SearchBar.css";
 
 const SearchBar: React.FC<{
   search: Dispatch<SetStateAction<any>>;

@@ -63,30 +63,35 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
 
   return (
     <section className="movie-detail-section">
-      <img
-        className="background-img"
-        src={movieImage}
-        alt={selectedMovie.title}
-      />
-      <article className="movie-info">
-        <h1>{selectedMovie.title}</h1>
-        <p>{selectedMovie.description}</p>
-        <div className="movie-sub-details">
-          <p>{movieUpdated && getCategoryDetails("genre")} ●</p>
-          <p>{selectedMovie.releaseYear} ● </p>
-          <p>{movieUpdated && convertRuntime(selectedMovie.duration)}</p>
-        </div>
-        <article className="cast-article">
-          <p>
-            <span className="cast-span">Starring</span>:{" "}
-            {movieUpdated && getCategoryDetails("")} ●{" "}
-          </p>
-          <p>
-            <span className="cast-span">Director</span>:{" "}
-            {movieUpdated && getDirector()}
-          </p>
-        </article>
-      </article>
+      <figure className="wp-caption">
+        <img
+          className="background-img demo"
+          src={movieImage}
+          alt={selectedMovie.title}
+        />
+        <figcaption className="wp-caption-text">
+          <article className="movie-info">
+            <p className="movie-title">{selectedMovie.title}</p>
+            <div className="movie-sub-details">
+              <p>{movieUpdated && getCategoryDetails("genre")} ●</p>
+              <p>{selectedMovie.releaseYear} ● </p>
+              <p>{movieUpdated && convertRuntime(selectedMovie.duration)}</p>
+            </div>
+            <p className="movie-description">{selectedMovie.description}</p>
+            <article className="cast-article">
+              <p className="cast-text">
+                <span className="cast-span">Starring</span>:{" "}
+                {movieUpdated && getCategoryDetails("")}
+              </p>
+              <br />
+              <p className="cast-text">
+                <span className="cast-span">Director</span>:{" "}
+                {movieUpdated && getDirector()}
+              </p>
+            </article>
+          </article>
+        </figcaption>
+      </figure>
     </section>
   );
 };
