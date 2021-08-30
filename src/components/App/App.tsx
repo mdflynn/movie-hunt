@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import HomePage from "../HomePage/HomePage";
 import MoviePage from "../MoviePage/MoviePage";
 import Nav from "../Nav/Nav";
-// @ts-ignore
 import { Route, Switch } from "react-router-dom";
 
 const App: React.FC = () => {
