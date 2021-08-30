@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./MoviePage.css";
 
 import { fetchMovies } from "../../apiCalls";
-import { findMovieThumbImage, importAll } from "../../utilities";
+import { findMovieThumbImage } from "../../utilities";
 import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
-// @ts-ignore
-const movieBackgrounds = importAll(
-  require.context("../../assets/movieHeroImages", false, /\.(png|jpe?g|svg)$/)
-);
+import movieHeroImages from "../../assets/movieHeroImages";
 
 const MoviePage: React.FC<{ id: string }> = ({ id }) => {
   const [selectedMovie, setSelectedMovie] = useState<any>({});
@@ -16,9 +13,9 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
     fetchMovies(id).then((data) => setSelectedMovie(data.data));
   }, [id]);
 
-  const getImage = findMovieThumbImage(id, movieBackgrounds);
+  const getImage = findMovieThumbImage(id, movieHeroImages);
 
-  const movieImage = getImage === undefined ? defaultImage : getImage.default;
+  const movieImage = getImage === undefined ? defaultImage : getImage;
 
   const getCategoryDetails = (category: string) => {
     const movieInfoNeeded =

@@ -3,12 +3,9 @@ import "./MovieThumb.css";
 import { Link } from "react-router-dom";
 
 import { Movie } from "../../apiCalls";
-import { findMovieThumbImage, importAll } from "../../utilities";
+import { findMovieThumbImage } from "../../utilities";
 import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
-// @ts-ignore
-const movieThumbImages = importAll(
-  require.context("../../assets/moviePosterImages", false, /\.(png|jpe?g|svg)$/)
-);
+import moviePosterImages from "../../assets/moviePosterImages";
 
 interface Props {
   key: number;
@@ -17,9 +14,9 @@ interface Props {
 }
 
 const MovieThumb: React.FC<Props> = ({ movieData, poster }) => {
-  const getImage = findMovieThumbImage(movieData.id, movieThumbImages);
+  const getImage = findMovieThumbImage(movieData.id, moviePosterImages);
 
-  const movieImage = getImage === undefined ? defaultImage : getImage.default;
+  const movieImage = getImage === undefined ? defaultImage : getImage;
 
   return (
     <Link className="link-style" to={`movie/${movieData.id}`}>
