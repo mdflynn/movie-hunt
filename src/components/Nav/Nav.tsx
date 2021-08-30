@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+// @ts-ignore
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
