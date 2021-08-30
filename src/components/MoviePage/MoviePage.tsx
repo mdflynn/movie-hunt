@@ -82,7 +82,8 @@ const MoviePage: React.FC<{ id: string }> = ({ id }) => {
               <p className="class-text">
                 <span className="cast-span">Starring</span>:{" "}
                 {movieUpdated && getCategoryDetails("")}
-              </p>< br/>
+              </p>
+              <br />
               <p className="class-text">
                 <span className="cast-span">Director</span>:{" "}
                 {movieUpdated && getDirector()}
