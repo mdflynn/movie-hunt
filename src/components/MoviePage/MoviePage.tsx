@@ -4,7 +4,7 @@ import "./MoviePage.css";
 import { fetchMovies } from "../../apiCalls";
 import { findMovieThumbImage, importAll } from "../../utilities";
 import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
-
+// @ts-ignore
 const movieBackgrounds = importAll(
   require.context("../../assets/movieHeroImages", false, /\.(png|jpe?g|svg)$/)
 );
