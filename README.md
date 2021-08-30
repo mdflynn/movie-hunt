@@ -10,17 +10,17 @@ Check it out on [Heroku](https://ufomfg.herokuapp.com)!
 
 ## Goals
 
-• Deployed application
-• Modern styling with well-organized CSS
-• Using TypeScript is highly encouraged
-• No use of third-party component libraries such as Bootstrap or Material-UI
-• Using Create-React-App, Next.js, or Gatsby as a starter kit is okay
-• Well organized file structure
-• Descriptive naming conventions
-• DRY code that is readable and production ready
-• Reusable components
-• Sound logic for how the search and filter are architected
-• Full Git history with atomic commits
+- Deployed application
+- Modern styling with well-organized CSS
+- Using TypeScript is highly encouraged
+- No use of third-party component libraries such as Bootstrap or Material-UI
+- Using Create-React-App, Next.js, or Gatsby as a starter kit is okay
+- Well organized file structure
+- Descriptive naming conventions
+- DRY code that is readable and production ready
+- Reusable components
+- Sound logic for how the search and filter are architected
+- Full Git history with atomic commits
 
 <details>
   <summary>Set up</summary>
