@@ -32,8 +32,7 @@ const App: React.FC = () => {
         />
         <Route
           path="/movie/:id"
-          render={({ match }) => <MoviePage id={match.params.id} />}
-          // add selectedPoster in the render
+          render={({ match }: any) => <MoviePage id={match.params.id} />}
         />
       </Switch>
     </>
