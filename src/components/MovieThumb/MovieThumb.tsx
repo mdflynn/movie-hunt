@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Movie } from "../../apiCalls";
 import { findMovieThumbImage, importAll } from "../../utilities";
 import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
-
+// @ts-ignore
 const movieThumbImages = importAll(
   require.context("../../assets/moviePosterImages", false, /\.(png|jpe?g|svg)$/)
 );
