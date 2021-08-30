@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import "./MovieThumb.css";
+// @ts-ignore
 import { Link } from "react-router-dom";
 
 import { Movie } from "../../apiCalls";
