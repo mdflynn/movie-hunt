@@ -6,7 +6,7 @@
 
 An app to search movies and find out more details about them!
 
-Check it out on [Heroku](https://ufomfg.herokuapp.com)!
+Check it out on [Heroku](https://movie-hunt.herokuapp.com/)!
 
 ## Goals
 
