@@ -10,10 +10,11 @@ const Dropdown: React.FC<{ filter: Dispatch<SetStateAction<any>> }> = ({
 
   return (
     <select
-      defaultValue={"Default"}
+      defaultValue={""}
       onChange={handleDropdownChange}
       className="dropdown"
     >
+      <option value="" selected disabled hidden>Filter by Genre</option>
       <option value="Default">All</option>
       <option value="Action">Action</option>
       <option value="Animated">Animated</option>
