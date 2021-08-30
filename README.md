@@ -4,7 +4,7 @@
 
 ## Overview
 
-An app to search movies and find out more details!
+An app to search movies and find out more details about them!
 
 Check it out on [Heroku](https://ufomfg.herokuapp.com)!
 
@@ -44,6 +44,19 @@ Check it out on [Heroku](https://ufomfg.herokuapp.com)!
 > - GitHub
 > - REST Api
 
+## Wins
+* Successfully deploying the app!! It felt great to finally get it deployed after the windfall of type errors :D
+
+* I definitely learned a lot more about TypeScript and felt that I'm much stronger with my TypeScript knowledge.
+## Challenges
+#### Deployment
+How I imported the pictures into the file has caused an issue with deployment. `require.context` has been throwing consistent errors that I have not been able to clear. I rewrote how I imported all of the images in order to clear the error until I can figure out exactly why my error wasn't clearing.
+
+#### npm Type packages
+I had difficulties with `@types/react-router-dom`. Every resource online said this was the way to clear my specific error. But I tried deleting my `node_modules` and reinstalling all packages but I could not find a way to make it work. So I had add `@ts-ignore` to the `react-router-dom` imports so that the app could be deployed. 
+
+#### branches/git history
+I was really happy with my commits and pull request history up until I ran into all of the issue with deployment. It became more sporadic and not as thorough. I felt rushed with timing and didn't follow my normal plan. It was a great learning lesson to slow down no matter what and follow your steps.
 ## Site Design
 
 ### Home Page
