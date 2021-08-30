@@ -9,6 +9,7 @@ import defaultImage from "../../assets/moviePosterImages/defaultImage.jpeg";
 const movieThumbImages = importAll(
   require.context("../../assets/moviePosterImages", false, /\.(png|jpe?g|svg)$/)
 );
+
 interface Props {
   key: number;
   movieData: Movie;

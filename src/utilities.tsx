@@ -1,6 +1,6 @@
 // imports image files into component
-export const importAll = (r: any) => {
-  return r.keys().map(r);
+export const importAll = (require: any) => {
+  return require.keys().map(require);
 };
 
 export const findMovieThumbImage = (
