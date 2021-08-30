@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Movie Hunt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+An app to search movies and find out more details!
 
-### `npm start`
+Check it out on [Heroku](https://ufomfg.herokuapp.com)!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Goals
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+• Deployed application
+• Modern styling with well-organized CSS
+• Using TypeScript is highly encouraged
+• No use of third-party component libraries such as Bootstrap or Material-UI
+• Using Create-React-App, Next.js, or Gatsby as a starter kit is okay
+• Well organized file structure
+• Descriptive naming conventions
+• DRY code that is readable and production ready
+• Reusable components
+• Sound logic for how the search and filter are architected
+• Full Git history with atomic commits
 
-### `npm test`
+<details>
+  <summary>Set up</summary>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clone the repository down and cd into the repo on your local machine.
+- Install the library dependencies by running:
+  - `npm install`
+- To verify that it is setup correctly, run `npm start` in your terminal.
+- Go to `http://localhost:3000/` and the site should display and have functionality.
+- Enter `control + c` in your terminal to stop the server at any time.
+</details>
 
-### `npm run build`
+## Technologies and Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> - React
+> - TypeScript
+> - JSX
+> - HTML
+> - CSS
+> - git
+> - GitHub
+> - REST Api
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Site Design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home Page
 
-### `npm run eject`
+<img width="1400" alt="main page" src="https://i.imgur.com/dQO1yBy.jpg">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Movie Page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="1400" alt="main page" src="https://i.imgur.com/mIZwf9f.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Search and Filter
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img width="1400" alt="main page" src="https://media.giphy.com/media/Va4LsgybBoP93aO2uq/giphy.gif?cid=790b7611851bde79fef8cbd016819f650ad56a4cae8ef36a&rid=giphy.gif&ct=g">
 
-## Learn More
+#### Contributors:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Mike Flynn](https://github.com/mdflynn)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="https://avatars1.githubusercontent.com/u/64620860?s=460&u=22fbddd0d55029892d0c73c4b37808a36d5aa1bd&v=4" alt="Mike Flynn"
+ width="150" height="auto" />
